@@ -27,7 +27,8 @@
 
     // Handle window resize.
     app._onResize = function () {
-        var appWidth = window.getComputedStyle(app.el).width;
+        var appWidth = window.getComputedStyle(app.el).getPropertyValue('width');
+        document.querySelector('.width span').innerHTML = appWidth;
         if (typeof appWidth !== 'string') {
             log('cannot get app width');
             return;
