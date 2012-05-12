@@ -1,7 +1,7 @@
 /*jslint white: true, devel: true, onevar: false, undef: true, nomen: false,
   regexp: true, plusplus: false, bitwise: true, newcap: true, maxerr: 50,
   indent: 4 */
-/*global window: false, document: false */
+/*global window: false, document: false, Modernizr: false */
 
 (function () {
 
@@ -21,8 +21,7 @@
     app._canRun = function (options) {
         var el = !!options.el;
         var computedStyle = 'getComputedStyle' in window;
-        var classlist = 'classList' in document.documentElement;
-        return el && computedStyle && classlist;
+        return el && computedStyle && Modernizr.classlist;
     };
 
     // Handle window resize.
