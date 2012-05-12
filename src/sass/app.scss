@@ -1,1 +1,13 @@
 @import "compass/reset";
+@import "compass/css3";
+
+$app_bg: #eee;
+
+html, body {
+    height: 100%;
+}
+
+#app {
+    background-color: $app_bg;
+    min-height: 100%;
+}

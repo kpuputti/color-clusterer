@@ -17,12 +17,25 @@
     // Application namespace.
     var app = {};
 
-    app.init = function () {
-        var now = new Date();
-        log('init app at:', now);
+    // Detect the needed feature support for the app.
+    app._canRun = function (options) {
+        var el = !!options.el;
+        var classlist = 'classList' in document.documentElement;
+        return el && classlist;
     };
 
-    // Expose namespace to global scope.
-    window.app = app;
+    // Initialize the app with the given options.
+    app.init = function (options) {
+        if (!app._canRun(options)) {
+            alert('Cannot run app in your browser.');
+            return;
+        }
+        app.options = options || {};
+        var now = new Date();
+        var el = app.options.el;
+        log('init app at:', now, 'in element:', el);
+    };
 
+    // Expose the app namespace to global scope.
+    window.app = app;
 }());
