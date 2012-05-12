@@ -20,8 +20,22 @@
     // Detect the needed feature support for the app.
     app._canRun = function (options) {
         var el = !!options.el;
+        var computedStyle = 'getComputedStyle' in window;
         var classlist = 'classList' in document.documentElement;
-        return el && classlist;
+        return el && computedStyle && classlist;
+    };
+
+    app._onResize = function () {
+        var appWidth = window.getComputedStyle(app.options.el).width;
+        var width = window.parseInt(appWidth.replace('px', ''), 10);
+        if (!isNaN(width) && width !== app.width) {
+            log('app width changed to:', width);
+            app.width = width;
+        }
+    };
+
+    app._addEvents = function () {
+        window.addEventListener('resize', app._onResize);
     };
 
     // Initialize the app with the given options.
@@ -34,6 +48,9 @@
         var now = new Date();
         var el = app.options.el;
         log('init app at:', now, 'in element:', el);
+
+        app._addEvents();
+        app._onResize();
     };
 
     // Expose the app namespace to global scope.
