@@ -1,13 +1,41 @@
 @import "compass/reset";
 @import "compass/css3";
 
-$app_bg: #eee;
+$body_bg: #eee;
 
-html, body {
+html {
     height: 100%;
+}
+body {
+    @include box-sizing(border-box);
+    height: 100%;
+    padding: 1em;
+    background-color: $body_bg;
+    overflow-y: scroll;
 }
 
 #app {
-    background-color: $app_bg;
+
+    position: relative;
+    @include box-sizing(border-box);
     min-height: 100%;
+
+    font-family: 'Ubuntu', sans-serif;
+
+    h1 {
+        font-size: 1.4em;
+        font-weight: bold;
+        padding: 0.5em 0;
+    }
+    p {
+        margin: 1em 0;
+        line-height: 1.4em;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #app {
+        width: 800px;
+        margin: 0 auto;
+    }
 }

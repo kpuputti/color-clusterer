@@ -37,5 +37,5 @@
     };
 
     // Expose the app namespace to global scope.
-    window.app = app;
+    window.clusterer = app;
 }());
