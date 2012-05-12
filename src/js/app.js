@@ -18,7 +18,8 @@
     var app = {};
 
     app.init = function () {
-        log('init app');
+        var now = new Date();
+        log('init app at:', now);
     };
 
     // Expose namespace to global scope.
