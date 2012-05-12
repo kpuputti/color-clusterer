@@ -27,7 +27,11 @@
 
     // Handle window resize.
     app._onResize = function () {
-        var appWidth = window.getComputedStyle(app.options.el).width;
+        var appWidth = window.getComputedStyle(app.el).width;
+        if (typeof appWidth !== 'string') {
+            log('cannot get app width');
+            return;
+        }
         var width = window.parseInt(appWidth.replace('px', ''), 10);
         if (!isNaN(width) && width !== app.width) {
             log('app width changed to:', width);
@@ -42,14 +46,15 @@
 
     // Initialize the app with the given options.
     app.init = function (options) {
+        options = options || {};
         if (!app._canRun(options)) {
             alert('Cannot run app in your browser.');
             return;
         }
-        app.options = options || {};
         var now = new Date();
-        var el = app.options.el;
-        log('init app at:', now, 'in element:', el);
+        app.options = options;
+        app.el = options.el;
+        log('init app at:', now, 'in element:', app.el);
 
         app._addEvents();
         app._onResize();
