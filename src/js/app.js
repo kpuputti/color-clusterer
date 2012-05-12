@@ -25,6 +25,7 @@
         return el && computedStyle && classlist;
     };
 
+    // Handle window resize.
     app._onResize = function () {
         var appWidth = window.getComputedStyle(app.options.el).width;
         var width = window.parseInt(appWidth.replace('px', ''), 10);
@@ -34,6 +35,7 @@
         }
     };
 
+    // Add event listeners.
     app._addEvents = function () {
         window.addEventListener('resize', app._onResize);
     };
