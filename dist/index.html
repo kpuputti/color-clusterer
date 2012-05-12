@@ -19,23 +19,40 @@
         <span class="width-class width-class-large">large</span>
         <span class="width-class width-class-x-large">x-large</span>
       </p>
-      <p>
-        Lörem ipsum dolor sit ämét, consectetur adipiscing elit. In
-        luctus mi porttitor diam condimentum in viverra dolor
-        pellentesque. Nulla sodales magna a leo semper feugiat. Etiam
-        rhoncus, arcu vitae semper tincidunt, sapien est eleifend
-        elit, et laoreet arcu orci at massa. Aliquam erat
-        volutpat. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Quisque congue odio et
-        arcu ornare vel imperdiet tellus imperdiet. Suspendisse neque
-        tortor, consequat ut interdum nec, dignissim at nunc.
-      </p>
+      <section class="content">
+
+        <section class="set-image">
+          <h1>Set image:</h1>
+          <p>
+            <form action="#">
+              <input type="url" value="data/img/boxes1.png" autofocus>
+            </form>
+          </p>
+        </section>
+
+        <section>
+          <h1>Original image:</h1>
+          <div class="img-wrapper"></div>
+        </section>
+
+        <section>
+          <h1>Image on canvas:</h1>
+          <canvas></canvas>
+        </section>
+
+        <section>
+          <h1>Image colors:</h1>
+          <ul class="color-list"></ul>
+        </section>
+
+      </section>
     </article>
 
     <noscript>
       <p>JavaScript support needed for the app.</p>
     </noscript>
 
+    <script src="lib/underscore-1.3.3.min.js"></script>
     <script src="app.min.js"></script>
     <script>
       window.addEventListener('DOMContentLoaded', function () {

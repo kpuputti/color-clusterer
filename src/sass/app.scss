@@ -23,7 +23,7 @@ body {
 
     font-family: 'Ubuntu', sans-serif;
 
-    h1 {
+    > h1 {
         font-size: 1.4em;
         font-weight: bold;
         padding: 0.5em 0;
@@ -37,6 +37,27 @@ body {
     p {
         margin: 1em 0;
         line-height: 1.4em;
+    }
+    .set-image {
+        input {
+            font-size: 1.4em;
+            width: 100%;
+        }
+    }
+    .content h1 {
+        margin: 0.5em 0;
+    }
+    .color-list li {
+        margin-bottom: 0.5em;
+        span {
+            width: 1em;
+            height: 1em;
+            float: left;
+            margin-right: 0.5em;
+        }
+    }
+    canvas {
+        background-color: #000;
     }
 }
 
