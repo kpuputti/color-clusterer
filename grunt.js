@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         },
         watch: {
             scripts: {
-                files: '<config:lint.all>',
+                files: '<config:lint.files>',
                 tasks: 'lint concat min'
             },
             sass: {
