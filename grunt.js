@@ -5,33 +5,42 @@ module.exports = function (grunt) {
     grunt.initConfig({
         meta: {
             version: '0.1.0',
-            banner: '/*! PROJECT_NAME - v<%= meta.version %> - ' +
+            banner: '/*! Color Clusterer - v<%= meta.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-                '* http://PROJECT_WEBSITE/\n' +
+                '* http://kpuputti.github.com/color-clusterer/\n' +
                 '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-                'YOUR_NAME; Licensed MIT */'
+                'Kimmo Puputti; Licensed MIT */'
         },
         lint: {
-            files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
-        },
-        qunit: {
-            files: ['test/**/*.html']
+            files: ['grunt.js', 'src/js/**/*.js']
         },
         concat: {
             dist: {
-                src: ['<banner:meta.banner>', '<file_strip_banner:lib/FILE_NAME.js>'],
-                dest: 'dist/FILE_NAME.js'
+                src: ['<banner:meta.banner>', 'src/js/app.js'],
+                dest: 'dist/app.js'
             }
         },
         min: {
             dist: {
                 src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-                dest: 'dist/FILE_NAME.min.js'
+                dest: 'dist/app.min.js'
+            }
+        },
+        exec: {
+            sass: {
+                command: 'compass compile',
+                stdout: true
             }
         },
         watch: {
-            files: '<config:lint.files>',
-            tasks: 'lint qunit'
+            scripts: {
+                files: '<config:lint.all>',
+                tasks: 'lint concat min'
+            },
+            sass: {
+                files: 'src/sass/app.scss',
+                tasks: 'exec'
+            }
         },
         jshint: {
             options: {
@@ -52,7 +61,9 @@ module.exports = function (grunt) {
         uglify: {}
     });
 
+    grunt.loadNpmTasks('grunt-exec');
+
     // Default task.
-    grunt.registerTask('default', 'lint qunit concat min');
+    grunt.registerTask('default', 'lint concat min exec');
 
 };
