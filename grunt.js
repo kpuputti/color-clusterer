@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 'Kimmo Puputti; Licensed MIT */'
         },
         lint: {
-            files: ['grunt.js', 'src/js/**/*.js']
+            files: ['grunt.js', 'src/js/app.js']
         },
         concat: {
             dist: {
