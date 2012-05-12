@@ -3,10 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Color Clusterer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu">
     <link rel="stylesheet" href="app.css">
   </head>
   <body>
 
+    <article id="app">
+      <h1>Color Clusterer</h1>
+      <p>
+        Lörem ipsum dolor sit ämét, consectetur adipiscing elit. In
+        luctus mi porttitor diam condimentum in viverra dolor
+        pellentesque. Nulla sodales magna a leo semper feugiat. Etiam
+        rhoncus, arcu vitae semper tincidunt, sapien est eleifend
+        elit, et laoreet arcu orci at massa. Aliquam erat
+        volutpat. Class aptent taciti sociosqu ad litora torquent per
+        conubia nostra, per inceptos himenaeos. Quisque congue odio et
+        arcu ornare vel imperdiet tellus imperdiet. Suspendisse neque
+        tortor, consequat ut interdum nec, dignissim at nunc.
+      </p>
+    </article>
+
+    <noscript>
+      <p>JavaScript support needed for the app.</p>
+    </noscript>
+
     <script src="app.min.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        clusterer.init({
+          el: document.getElementById('app')
+        });
+      });
+    </script>
   </body>
 </html>
